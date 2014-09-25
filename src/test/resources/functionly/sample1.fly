@@ -1,0 +1,4 @@
+public function sample1(a, b)
+begin
+  return a + b;
+end
