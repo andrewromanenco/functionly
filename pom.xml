@@ -10,6 +10,12 @@
 	<name>Functionly</name>
 	<url>https://github.com/andrewromanenco/functionly</url>
 
+	<repositories>
+		<repository>
+			<id>github-mvn-repo</id>
+			<url>https://raw.githubusercontent.com/andrewromanenco/mvn-repo/master/</url>
+		</repository>
+	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
