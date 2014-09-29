@@ -18,7 +18,7 @@
 
 package functionly.ast;
 
-import functionly.print.ASTVisitor;
+
 
 public interface Visitable {
 

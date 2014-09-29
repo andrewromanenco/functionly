@@ -1,0 +1,6 @@
+public function bad3(a, b, c)
+begin
+  if (a - b) else begin
+    x = b;
+  end;
+end

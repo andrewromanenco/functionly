@@ -1,0 +1,18 @@
+public function bad2(a, b, c)
+begin
+  z = max(a, z);
+  while (z) begin
+    z = z - 10;
+    c = c + 1;
+  end;
+  return c;
+end
+
+function max(x, y)
+begin
+  if (x - y) then begin
+    return x;
+  end else begin
+    return y;
+  end;
+end

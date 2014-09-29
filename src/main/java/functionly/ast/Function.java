@@ -20,8 +20,6 @@ package functionly.ast;
 
 import java.util.List;
 
-import functionly.print.ASTVisitor;
-
 
 public class Function implements Visitable {
 
@@ -50,6 +48,24 @@ public class Function implements Visitable {
     @Override
     public void accept(ASTVisitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode() * 31 + parameters.size();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Function) {
+            final Function funct = (Function)obj;
+            return this.name.equals(funct.getName())
+                    &&(this.parameters.size() == funct.parameters.size());
+        }
+        return false;
     }
 
 }

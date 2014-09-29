@@ -1,0 +1,4 @@
+public function bad44()
+begin
+  return y;
+end

@@ -18,10 +18,10 @@
 
 package functionly.ast.statement;
 
+import functionly.ast.ASTVisitor;
 import functionly.ast.AbstractExpression;
 import functionly.ast.AbstractStatement;
 import functionly.ast.Visitable;
-import functionly.print.ASTVisitor;
 
 public class ReturnStatement extends AbstractStatement implements Visitable {
 

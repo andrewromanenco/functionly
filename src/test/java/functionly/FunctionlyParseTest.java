@@ -19,9 +19,6 @@
 package functionly;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,6 +33,7 @@ import com.romanenco.cfrm.llparser.LLParser;
 import functionly.ast.Program;
 import functionly.ast.init.AttributeHandlers;
 import functionly.grammar.FunctionlyGrammar;
+import functionly.semantic.SemanticVisitor;
 
 public class FunctionlyParseTest {
 
@@ -57,44 +55,53 @@ public class FunctionlyParseTest {
 
     @Test
     public void test1() throws IOException {
-        final ParsingTreeNode parsingTree = parse(getSourceFromFile("sample1.fly"));
+        final ParsingTreeNode parsingTree = parse(
+                Util.getSourceFromFile("sample1.fly"));
         Assert.assertNotNull(parsingTree);
         AST_BUILDER.build(parsingTree);
-        assertAstAttribute(parsingTree);
+        final Program program = assertAndGetProgramAttribute(parsingTree);
+        final SemanticVisitor semanticChecker = new SemanticVisitor();
+        program.accept(semanticChecker);
     }
 
     @Test
     public void test2() throws IOException {
-        final ParsingTreeNode parsingTree = parse(getSourceFromFile("sample2.fly"));
+        final ParsingTreeNode parsingTree = parse(
+                Util.getSourceFromFile("sample2.fly"));
         Assert.assertNotNull(parsingTree);
         AST_BUILDER.build(parsingTree);
-        assertAstAttribute(parsingTree);
+        final Program program = assertAndGetProgramAttribute(parsingTree);
+        final SemanticVisitor semanticChecker = new SemanticVisitor();
+        program.accept(semanticChecker);
     }
 
     @Test
     public void test3() throws IOException {
-        final ParsingTreeNode parsingTree = parse(getSourceFromFile("sample3.fly"));
+        final ParsingTreeNode parsingTree = parse(
+                Util.getSourceFromFile("sample3.fly"));
         Assert.assertNotNull(parsingTree);
         AST_BUILDER.build(parsingTree);
-        assertAstAttribute(parsingTree);
+        final Program program = assertAndGetProgramAttribute(parsingTree);
+        final SemanticVisitor semanticChecker = new SemanticVisitor();
+        program.accept(semanticChecker);
     }
 
     @Test
     public void test4() throws IOException {
-        final ParsingTreeNode parsingTree = parse(getSourceFromFile("sample4.fly"));
+        final ParsingTreeNode parsingTree = parse(
+                Util.getSourceFromFile("sample4.fly"));
         Assert.assertNotNull(parsingTree);
         AST_BUILDER.build(parsingTree);
-        assertAstAttribute(parsingTree);
+        final Program program = assertAndGetProgramAttribute(parsingTree);
+        final SemanticVisitor semanticChecker = new SemanticVisitor();
+        program.accept(semanticChecker);
     }
 
-    private static void assertAstAttribute(ParsingTreeNode parsingTree) {
+    private static Program assertAndGetProgramAttribute(ParsingTreeNode parsingTree) {
         final Object value = parsingTree.getAttribute("value");
         Assert.assertNotNull(value);
         Assert.assertTrue(value instanceof Program);
+        return (Program)value;
     }
 
-    private static String getSourceFromFile(String fileName) throws IOException {
-        final byte[] encoded = Files.readAllBytes(Paths.get("src/test/resources/functionly/" + fileName));
-        return new String(encoded, Charset.defaultCharset());
-    }
 }

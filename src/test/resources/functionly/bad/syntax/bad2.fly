@@ -1,0 +1,4 @@
+public function (a, b)
+begin
+  return a + b;
+end

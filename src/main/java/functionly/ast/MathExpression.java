@@ -18,7 +18,7 @@
 
 package functionly.ast;
 
-import functionly.print.ASTVisitor;
+
 
 public class MathExpression extends AbstractExpression implements Visitable {
 

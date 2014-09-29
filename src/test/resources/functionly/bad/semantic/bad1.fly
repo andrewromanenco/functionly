@@ -1,0 +1,4 @@
+public function bad1(a, b)
+begin
+  return a + c;
+end

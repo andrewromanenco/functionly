@@ -24,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import functionly.FunctionlyError;
+import functionly.ast.ASTVisitor;
 import functionly.ast.AbstractExpression;
 import functionly.ast.AbstractStatement;
 import functionly.ast.FloatNumber;

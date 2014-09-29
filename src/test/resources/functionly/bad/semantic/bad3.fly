@@ -1,4 +1,4 @@
-public function sample3(a, b, c)
+public function bad3(a, b, c)
 begin
   x = 0;
   if (a - b) then begin
@@ -9,7 +9,7 @@ begin
   while (x - c) begin
     c = c - someFunction();
   end;
-  return otherFunction(c);
+  return otherFunction(c, 5);
 end
 
 function someFunction()

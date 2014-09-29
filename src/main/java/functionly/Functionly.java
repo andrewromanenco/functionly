@@ -38,6 +38,7 @@ import functionly.ast.init.AttributeHandlers;
 import functionly.grammar.FunctionlyGrammar;
 import functionly.print.FilePrinter;
 import functionly.print.SilentPrinter;
+import functionly.semantic.SemanticVisitor;
 
 public class Functionly {
 
@@ -45,6 +46,7 @@ public class Functionly {
     private final Lexer lexer;
     private final Parser parser;
     private final ASTBuilder builder;
+    private final SemanticVisitor semanticChecker;
 
     public Functionly(boolean silentRun) {
         final FunctionlyGrammar grammar = new FunctionlyGrammar();
@@ -52,6 +54,7 @@ public class Functionly {
         parser = new LLParser(grammar);
         builder = new ASTBuilder();
         AttributeHandlers.initForBuilder(grammar, builder);
+        semanticChecker = new SemanticVisitor();
         if (silentRun) {
             printer = new SilentPrinter();
         } else {
@@ -66,6 +69,7 @@ public class Functionly {
         printer.print(parsingTree);
         builder.build(parsingTree);
         final Program program = (Program)parsingTree.getAttribute("value");
+        program.accept(semanticChecker);
         printer.print(program);
     }
 

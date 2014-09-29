@@ -1,0 +1,8 @@
+public function bad4(a, b, c)
+begin
+  if (a ~ b) then begin
+    x = 6;
+  end else begin
+    x = b;
+  end;
+end

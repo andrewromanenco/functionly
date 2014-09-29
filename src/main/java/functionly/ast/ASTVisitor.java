@@ -16,17 +16,8 @@
  * limitations under the License.
  */
 
-package functionly.print;
+package functionly.ast;
 
-import functionly.ast.AbstractExpression;
-import functionly.ast.AbstractStatement;
-import functionly.ast.FloatNumber;
-import functionly.ast.Function;
-import functionly.ast.FunctionCall;
-import functionly.ast.MathExpression;
-import functionly.ast.Program;
-import functionly.ast.StatementsBlock;
-import functionly.ast.Variable;
 import functionly.ast.statement.AssignStatement;
 import functionly.ast.statement.IfStatement;
 import functionly.ast.statement.ReturnStatement;
