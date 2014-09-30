@@ -21,9 +21,6 @@ See Functionly.txt for grammar details
 - Variable has to be declared before use (appear at right side of assign operation, before being part of an expression)
 - All variables represent numbers
 
-## Not yet implemented
-Code prints the abstract syntax tree, but does not make any semantic rules.
-
 ## Samples
 Sample source files are under src/test/resources/functionly/
 
